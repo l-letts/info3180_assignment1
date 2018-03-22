@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2 class="borderl">Please Add User</h2>
+    <form action= "{{url_for('profile')}}"  method="post" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+      <div>
+          <p><strong>First Name</strong><span style="color:red"></span></p>
+          {% for message in form.firstname.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.firstname(class = "adjust")}}
+          
+      </div>
+      <div>
+          <p><strong>Last Name</strong><span style="color:red"></span></p>
+          {% for message in form.lastname.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.lastname(class = "adjust")}}
+          
+      </div>
+      <div>
+          <p><strong>Gender</strong> <span style="color:red"></span></p>
+          {% for message in form.gender.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.gender(class = "adjust")}}
+          
+      </div>
+      <div>
+          <p><strong>Email</strong> <span style="color:red"></span></p>
+          {% for message in form.email.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.email(class = "adjust")}}
+          
+      </div>
+      <div>
+          <p><strong>Location</strong> <span style="color:red"></span></p>
+          {% for message in form.location.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.location(class = "adjust")}}
+          
+      </div>
+      <div>
+          <p><strong>Biography</strong> <span style="color:red"></span></p>
+          {% for message in form.biography.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.biography(class = "adjust1")}}
+          
+      </div>
+        <div>
+          <p><strong>Upload Image</strong> <span style="color:red"></span></p>
+          {% for message in form.upload.errors %}
+          <div class="flash"> {{message }} </div>
+          {% endfor %}
+          {{form.upload(class = "adjust1")}}
+          
+      </div>
+          {{form.button(class="btn btn-success")}}
+     
+    </form>
+{% endblock %}

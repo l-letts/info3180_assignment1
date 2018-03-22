@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+  {% include 'flash_messages.html' %}
+  <div>
+      {% for user in users %}
+            <div>
+	<div>
+		<div >
+            <div class="profile" >
+        		<div class ="prof" ><img src="{{url_for('static', filename='uploads/'+user.photo_name)}}" /></div>
+        		<div class = "prof">
+                  	<p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
+                  	<p><span></span>{{ user.gender }}</p>
+                    <p><span></span>{{ user.location }}</p>
+        		</div>
+        		</br>
+        		</br>
+        		<div  class="btn"><a href="{{ url_for('user_profile', id= user.id ) }}">View Profile</a></div>
+        	</div>
+        </div>
+	</div>
+</div>
+      
+      {% endfor %}
+    
+    </div>
+
+{% endblock %}
